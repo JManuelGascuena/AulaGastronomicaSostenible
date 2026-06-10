@@ -1,0 +1,521 @@
+/* ********************************************** */
+/* D E F I N I C I Ó N   D E   V A R I A B L E S  */
+/* ********************************************** */
+:root {
+  /* COLORES */
+  --color-primario: #e86b1c;
+  --color-secundario: #464747;
+  --color-terciario-oscuro: #959292;
+  --color-terciario-intermedio: #bcbcbc;
+  --color-terciario-claro: #f8f9fb;
+
+  --color-blanco: #ffffff;
+  --color-negro: #000000;
+
+  /* BORDER RADIUS*/
+  --border-radius-texterior: 15px; /*tarjeta exterior*/
+  --border-radius-tinterior: 10px; /*subtarjeta incluida en una tarjeta exterior*/
+  --border-radius-boton: 20px;
+  --border-radius-cformulario: 5px;
+  --border-radius-msg-error: 5px;
+}
+
+/* ****************************************************************
+   CABECERA SUPERIOR DE LA PÁGINA: LOGO CON TITULO + MENU NAV-BAR
+******************************************************************* */
+
+/* Estilos para que la parte del header y el nav siempre estén visibles */
+/* -------------------------------------------------------------------- */
+/* Contenedor que envuelve header y nav */
+.contenedor-fijo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cabecera-principal {
+  width: 100%;
+  display: flex;
+  background-color: var(
+    --color-blanco
+  ); /* Asegura un fondo para que no se transparente */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuye los elementos: izq, centro, der */
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+/* Ajuste del cuerpo para que el contenido no empiece debajo del menú fijo */
+body {
+  padding-top: 140px; /* Ajusta este valor según la altura total de tu header + nav */
+}
+
+
+/* Cabecera superior */
+/*.cabecera-principal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}*/
+
+.logo {
+  height: 80px; /* Ajusta según tu imagen */
+  width: auto; /* Mantiene la proporción */
+  flex-shrink: 0; /* Evita que los logos se aplasten si hay poco espacio */
+}
+
+.logop {
+  height: 110px; /* Ajusta según tu imagen */
+  width: auto; /* Mantiene la proporción */
+  flex-shrink: 0; /* Evita que los logos se aplasten si hay poco espacio */
+}
+
+
+.titulo-proyecto {
+  flex-grow: 1;
+  text-align: center;
+  color: var(--color-primario) !important;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif,
+    Helvetica, sans-serif;
+  font-size: 38px;
+  margin: 0 15px; /* Margen lateral para que no pegue con los logos */
+}
+
+/* Barra de Navegación */
+/* ------------------- */
+.bg-primary {
+  background-color: var(--color-primario) !important;
+  overflow: hidden; /* Asegura que el color de fondo cubra todo */
+}
+
+.nav-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+  /*padding: 10px 20px;*/
+  display: flex;
+  justify-content: flex-start; /* Alinea todo al principio por defecto */
+}
+
+.nav-lista li:last-child {
+  margin-left: auto; /* Esto empuja el último elemento (LOGIN) a la derecha */
+}
+
+.nav-link {
+  color: var(--color-blanco);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 15px 30px; /* Da altura y anchura al botón */
+  display: flex; /* 'flex' para alinear el icono */
+  align-items: center; /* Centra verticalmente el icono y el texto */
+  gap: 10px; /* Crea el espacio exacto entre icono y texto */
+  transition: 0.3s;
+}
+
+.nav-link i {
+  margin-right: 8px; /* Espacio entre el icono y el texto */
+  font-size: 0.9em; /* Ajusta un poco el tamaño si lo ves muy grande */
+}
+
+.nav-link:hover {
+  color: var(--color-primario) !important;
+  background-color: var(--color-blanco) !important;
+}
+
+/* Estilos para que en el menú se resalte el item de menú que está activo en cada momento  */
+/* --------------------------------------------------------------------------------------- */
+
+/* Estilo para el enlace de la página activa */
+.nav-link.active {
+  text-decoration: none !important;
+  color: var(--color-primario) !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 18px !important;
+  /*REDUCIMOSelpaddingverticalparaqueelbotónseamásbajoquelabarra*/padding: 5px 30px;
+  /*AÑADIMOSmargenverticalpara"empujar"elbotónhaciaelcentroyqueseveanaranja*/margin-top: 9px;
+  margin-bottom: 7px;
+  margin-left: 1px;
+  margin-right: 1px;
+  /*Redondeamoslasesquinasparaquequedemejorcomobotónflotante*/border-radius: var(--border-radius-boton);
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.966) !important;
+  pointer-events: none;
+  -webkit-border-radius: var(--border-radius-boton);
+  -moz-border-radius: var(--border-radius-boton);
+  -ms-border-radius: var(--border-radius-boton);
+  -o-border-radius: var(--border-radius-boton);
+}
+
+/* Para asegurar que el icono del sea naranja cuando el botón sea blanco */
+.nav-link.active i {
+  color: var(--color-primario) !important; /* Mismo color que el texto activo */
+  padding: 0; /* Eliminamos el padding para que no deforme el botón */
+  margin-right: 8px; /* Espacio opcional entre icono y texto */
+  font-size: 0.9em; /* Tamaño proporcional al texto */
+}
+
+
+
+/* ****************************************************************
+                    P I E    D E    P Á G I N A
+******************************************************************* */
+
+/* Estilos del Footer */
+.main-footer {
+  background-color: var(--color-terciario-claro) !important;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-info {
+  margin-bottom: 30px;
+}
+
+.footer-title {
+  color: var(--color-secundario) !important;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.footer-author,
+.footer-copy {
+  color: #9a9aa8 !important;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+}
+
+/* Contenedor de Logos */
+.logo-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.logo-item {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+/* ****************************************************************
+   G A L E R I A   D E   V I D E O S   D E   S H O W C O O K I N G
+******************************************************************* */
+
+/* Estilos Showcookings */
+.bodyShowcooking {
+  background-color: #f0f2f5 !important;
+}
+
+.custom-card {
+  /*background-color: #e2e3e5 !important;*/
+  background-color: var(--color-terciario-intermedio) !important;
+  border: none !important;
+}
+
+/* Contenedor 16:9 con fondo para error */
+.ratio-16x9 {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-color: #ced4da !important;
+}
+
+/* Mensaje de error personalizado */
+.error-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  color: #6c757d !important;
+  z-index: 1;
+}
+
+.ratio-16x9 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  border: none;
+}
+
+/* Ajustes para el Modal de Video */
+/* ------------------------------ */
+#videoModal .modal-xl {
+  max-width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+}
+
+#videoModal .modal-content {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5) !important;
+  border-radius: var(--border-radius-texterior);
+  overflow: hidden;
+  -webkit-border-radius: var(--border-radius-texterior);
+  -moz-border-radius: var(--border-radius-texterior);
+  -ms-border-radius: var(--border-radius-texterior);
+  -o-border-radius: var(--border-radius-texterior);
+}
+
+/* Opcional: si quieres que el fondo sea más oscuro al abrir el video */
+.modal-backdrop.show {
+  opacity: 0.8;
+}
+
+/* ****************************************************************
+   P A G I N A   F O R M U L A R I O   L O G I N
+******************************************************************* */
+
+/* ESTILOS PAGINA FORMULARIO */
+.bodyFormulario {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f0f2f5 !important;
+  display: flex;
+  flex-direction: column; /* Apila encabezado y main verticalmente */
+  min-height: 100vh;
+}
+
+.login-main {
+  flex-grow: 1; /* Ocupa todo el espacio sobrante debajo del header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.contenedor-login {
+  background-color: var(--color-primario) !important;
+  padding: 30px;
+  border-radius: var(--border-radius-texterior);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: left;
+  -webkit-border-radius: var(--border-radius-texterior);
+  -moz-border-radius: var(--border-radius-texterior);
+  -ms-border-radius: var(--border-radius-texterior);
+  -o-border-radius: var(--border-radius-texterior);
+}
+
+.h2Formulario {
+  color: var(--color-blanco) !important;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.labelFormulario {
+  color: var(--color-blanco) !important;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.inputFormulario,
+.inputFormulario[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: var(--border-radius-cformulario);
+  box-sizing: border-box;
+  /*Aseguraqueelpaddingnodesborde*/:;
+  -webkit-border-radius: var(--border-radius-cformulario);
+  -moz-border-radius: var(--border-radius-cformulario);
+  -ms-border-radius: var(--border-radius-cformulario);
+  -o-border-radius: var(--border-radius-cformulario);
+}
+
+.buttonFormulario {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color-blanco) !important;
+  color: var(--color-primario) !important;
+  border: none;
+  border-radius: var(--border-radius-boton);
+  /*Esquinasredondeadas*/
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  -webkit-border-radius: var(--border-radius-boton);
+  -moz-border-radius: var(--border-radius-boton);
+  -ms-border-radius: var(--border-radius-boton);
+  -o-border-radius: var(--border-radius-boton);
+}
+
+.buttonFormulario:hover {
+  background-color: #f2f2f2 !important;
+}
+
+.mensaje-error {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: var(--border-radius-msg-error);
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  -webkit-border-radius: var(--border-radius-msg-error);
+  -moz-border-radius: var(--border-radius-msg-error);
+  -ms-border-radius: var(--border-radius-msg-error);
+  -o-border-radius: var(--border-radius-msg-error);
+}
+
+/* *************************************************************************
+   P A G I N A   F O R M U L A R I O   A Ñ A D I R   S H O W C O O K I N G
+**************************************************************************** */
+/* Estilo de fila flex para cada grupo. La etiqueta y el control en la misma línea */
+.fila-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+.fila-form label {
+  flex: 0 0 150px; /* Ancho fijo para las etiquetas */
+  margin-bottom: 0 !important;
+}
+.fila-form input,
+.fila-form textarea {
+  flex: 1; /* El control ocupa el resto del espacio */
+  margin-bottom: 0 !important;
+}
+
+.buttonSecundarioFormulario {
+  text-decoration: none;
+  text-align: center;
+  background-color: #6c757d !important;
+  color: white !important;
+}
+
+/*ESTE creo que no se utiliza en ningun sitio*/
+/*.h1TitleGris {
+  color: VAR(--COLOR-SECUNDARIO);
+}*/
+
+
+/* Botón hamburguesa oculto por defecto en ordenadores */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-blanco);
+  font-size: 24px;
+  padding: 12px 20px;
+  cursor: pointer;
+  width: 100%;
+  text-align: right; /* Alinea las tres rayas a la derecha */
+  box-sizing: border-box;
+}
+
+
+/* --- Ajustes Responsive --- */
+
+@media (max-width: 768px) {
+  /* Reducimos el padding del cuerpo porque la cabecera será más pequeña */
+  body {
+    padding-top: 160px; /* Incrementado 120px: ahora contempla la altura del botón hamburguesa */
+  }
+
+  .logo {
+    height: 50px; /* Logo más pequeño en tablets */
+  }
+  
+  .logop {
+    height: 60px;
+  }
+
+  .titulo-proyecto {
+    font-size: 24px; /* Reducimos el tamaño de la fuente */
+    margin: 0 10px;
+  }
+
+/* =================================================== */
+  /* AÑADIDO ESTO DENTRO DE 768px PARA HACER EL MENÚ RESPONSIVE */
+  /* =================================================== */
+  
+  .nav-toggle {
+    display: block; /* Muestra el botón de tres rayas */
+  }
+
+  .nav-lista {
+    display: none; /* Oculta el menú horizontal por defecto */
+    flex-direction: column; /* Apila los enlaces verticalmente */
+    width: 100%;
+    background-color: var(--color-primario);
+  }
+
+  /* Clase que activará JavaScript al pulsar el botón */
+  .nav-lista.show {
+    display: flex; 
+  }
+
+  .nav-lista li:last-child {
+    margin-left: 0; /* Elimina el empuje a la derecha del LOGIN */
+  }
+
+  .nav-link {
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria suave */
+  }
+
+  /* Adaptación del botón activo en el menú vertical */
+  .nav-link.active {
+    margin: 5px 10px;
+    padding: 10px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cabecera-principal {
+    flex-direction: row; /* Mantenemos fila, pero podrías usar column si quieres apilarlos */
+    flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .titulo-proyecto {
+    font-size: 18px; /* Texto aún más pequeño para móviles */
+    width: 100%; /* Ocupa toda la línea para centrarse mejor */
+    order: -1; /* Opcional: pone el título arriba de los logos */
+    margin-bottom: 5px;
+  }
+  
+  body {
+    padding-top: 210px; /* Incrementado 160px: compensa el espacio del título arriba + logos + menú */
+  }
+}

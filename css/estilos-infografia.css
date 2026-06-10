@@ -1,0 +1,178 @@
+/* ********************************************** */
+/* D E F I N I C I Ó N   D E   V A R I A B L E S  */
+/* ********************************************** */
+:root {
+  /* COLORES */
+  --color-primario: #e86b1c;
+  --color-secundario: #464747;
+  --color-terciario-oscuro: #959292;
+  --color-terciario-intermedio: #bcbcbc;
+  --color-terciario-claro: #f8f9fb;
+
+  --color-blanco: #ffffff;
+  --color-negro: #000000;
+
+
+  /* BORDER RADIUS*/
+  --border-radius-texterior: 15px;
+  --border-radius-tinterior: 10px;
+}
+
+/* **************************************************************************************
+   ESTILOS DE LA I N F O G R A F I A  M O S T R A D A   E N   L A  P Á G I N A index.php
+   EN LA PARTE INFERIOR DE DICHA PÁGINA
+***************************************************************************************** */
+
+/* Estilos base y resets*/
+
+* {
+  box-sizing: border-box;
+}
+
+.infografia-div-tarjeta-principal {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #eee;
+  margin: 0;
+  padding: 0; /* Cambiado de 10px a 0 */
+}
+
+.infografia-tarjeta-principal {
+  background-color: #f4f4f4;
+  border-radius: var(--border-radius-texterior) ;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto 20px auto;
+  /*0arriba,autoaloslados,20pxabajo*/box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ccc;
+  -webkit-border-radius: var(--border-radius-texterior) ;
+  -moz-border-radius: var(--border-radius-texterior) ;
+  -ms-border-radius: var(--border-radius-texterior) ;
+  -o-border-radius: var(--border-radius-texterior) ;
+}
+
+/* Cabecera Principal */
+.infografia-cabecera-principal {
+  background-color: var(--color-primario);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* Tamaño de fuente adaptable */
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+  /* Intenta mantener una línea en pantallas grandes */
+  white-space: normal;
+}
+
+/* Contenedor de Grilla */
+.infografia-grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Por defecto 1 columna (móvil) */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Estructura de las Subtarjetas */
+.infografia-subtarjeta {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: var(--border-radius-tinterior);
+  border: 1px solid #ddd;
+  overflow: hidden;
+  height: 100%;
+  /*Importanteparaigualaralturas*/:;
+  -webkit-border-radius: var(--border-radius-tinterior);
+  -moz-border-radius: var(--border-radius-tinterior);
+  -ms-border-radius: var(--border-radius-tinterior);
+  -o-border-radius: var(--border-radius-tinterior);
+}
+
+.infografia-cabecera-sub {
+  background-color: var(--color-secundario);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.infografia-contenido-sub {
+  padding: 15px;
+  font-size: 0.92rem !important;
+  line-height: 1.6;
+  color: #333;
+  flex-grow: 1; /* Hace que el contenido ocupe el espacio sobrante */
+}
+
+/* Listas */
+.infografia-ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.infografia-li {
+  font-size: 0.94rem !important;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.infografia-lista-centros {
+  list-style: none;
+  padding: 0;
+}
+.infografia-lista-centros > li {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+.infografia-lista-centros > li:last-child {
+  border: none;
+}
+.infografia-lista-centros b {
+  color: #000000;
+}
+
+/* Contenedor negro exterior */
+.infografia-video-container-wrapper {
+  width: 101%;
+  background-color: #000; /*FFFF BLANCO*/
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Contenedor del iframe con proporción fija */
+.infografia-video-responsive {
+  width: 101%;
+  max-width: 1100px; /* Alineado con el ancho de tu tarjeta */
+  position: relative;
+  padding-bottom: 56.25%; /* Esto crea la proporción 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.infografia-video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --- RESPONSIVE (Tablets y Desktop) --- */
+@media (min-width: 768px) {
+  .infografia-grid-container {
+    grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas medianas/grandes */
+  }
+
+  /* Hacemos que la tarjeta de "Sitio Web" ocupe las dos columnas abajo */
+  .infografia-full-width {
+    grid-column: span 2;
+  }
+
+  .infografia-cabecera-principal {
+    white-space: nowrap; /* En desktop forzamos una sola línea */
+  }
+}
